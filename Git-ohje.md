@@ -10,7 +10,7 @@ Lue tämän ohjeen pohjatiedoksi artikkeli [A successful Git branching model](ht
 Lisäksi kannattaa lukea Githubin ohje [Git Style Guide](https://github.com/agis/git-style-guide) -saatavilla osoitteessa https://github.com/agis/git-style-guide 
 
 ## Yleinen kuvaus
-Käytetään `master` branchia vain julkaisuille, `develop` branchia kehitykseen, `release-*` branchejä vain julkaisujen bugifiksaukseen sekä julkaisujen versioiden viemiseen `master` branchiin sekä `hotfix-*` branchejä julkaistujen korjaamiseen.
+Käytetään `master` branchia vain julkaisuille, `develop` branchia kehitykseen, `release-*` branchejä vain julkaisujen bugifiksaukseen sekä julkaisujen versioiden viemiseen `master` branchiin ja `hotfix-*` branchejä julkaistujen korjaamiseen.
 
 `master`on siis vain julkaistuille versioille eli releaseille. Masteriin tuodaan vain testattuja versioita `release-*` branchien kautta. `master` branchista voidaan haarauttaa `hotfix-*`branchejä bugifiksausta varten.
 
