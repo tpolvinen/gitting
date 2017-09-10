@@ -33,11 +33,11 @@ Käytetään `master` branchia vain julkaisuille, `develop` branchia kehitykseen
 * Kun toiminnallisuus on valmis, testaa!
 * Testattuasi tee Githubin sivulla pull request, aseta *base: develop* —EI MASTERIIN!
 * Pull requesting testannut hyväksyjä tekee (feature branch -> merge -> develop branch)
-`git checkout develop`  vaihdetaan tarkastetusta branchistä develop branchiin
-`git merge --no-ff toiminnallisuus-x/osa-y -m "Merge-viesti"`  mergetään feature branch developiin pitäen mukana kaikki commitit
-`git branch -d toiminnallisuus-x/osa-y`  deletoidaan paikallinen feature branch
-`git push origin develop`  pushataan tulos Githubissa olevan repon develop branchiin
-`git push origin :toiminnallisuus-x/osa-y` ja lopuksi deletoidaan feature branch Githubista.
+    * `git checkout develop`  vaihdetaan tarkastetusta branchistä develop branchiin
+    * `git merge --no-ff toiminnallisuus-x/osa-y -m "Merge-viesti"`  mergetään feature branch developiin pitäen mukana kaikki commitit
+    * `git branch -d toiminnallisuus-x/osa-y`  deletoidaan paikallinen feature branch
+    * `git push origin develop`  pushataan tulos Githubissa olevan repon develop branchiin
+    * `git push origin :toiminnallisuus-x/osa-y` ja lopuksi deletoidaan feature branch Githubista.
 
 Release branch tehdään lähes samalla tavalla, lue ohjeet alta! :)
 
