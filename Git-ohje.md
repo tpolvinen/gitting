@@ -1,5 +1,5 @@
 # Git-ohje
-Ensin lyhyt yleinen kuvaus, sitten varsinaiset käytänteet ja käytettävät komennot.
+Ensin lyhyt **yleinen kuvaus**, sitten varsinaiset **käytänteet ja käytettävät komennot**.
 
 Työskentelyn alkaessa muista aina `git checkout master` ja `git pull` -joka päivän aluksi! 
 
