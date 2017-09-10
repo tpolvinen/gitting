@@ -18,6 +18,7 @@ Käytetään `master` branchia vain julkaisuille, `develop` branchia kehitykseen
 `develop` branchistä haarautetaan samoin kullekin **release**lle oma `release-\*` branch, jossa tehdään vain bugifiksausta ja testausta. Nimeäminen tehdään muodossa `release-\julkaisunimi` esim. "release-demo02" tai "release-sprint04". Release branchissä tehtyjä bugifiksauksia voidaan jatkuvasti mergetä takaisin `develop` branchiin. Lopuksi testattu ja hyväksytty release mergetään sekä `master` että `develop` brancheihin ja merkitään masterissa versionumeron tagillä.
 
 ## TL;DR 
+* Ole cool, käytä komentoriviä.
 * Muista aina, liikenteessä aluksi `git checkout master` ja `git pull` 
 * Luo feature branch `develop` branchistä: pullaa `master`, nimeä uusi branch kuvaavasti toiminnallisuuden nimellä
     * Jos useampia osia: tee “toiminnallisuusx/master“ branch ja siitä “toiminnallisuusx/omanimi” branch -—tai omanimen tilalle “osan-nimi”, välit väliviivoiksi
@@ -37,14 +38,9 @@ Käytetään `master` branchia vain julkaisuille, `develop` branchia kehitykseen
 
 Release branch tehdään lähes samalla tavalla, lue ohjeet alta! :)
 
-
+## Käytänteet ja käytettävät komennot
 ### Aluksi
 *Käytetään gitin kanssa komentoriviä.* IDEn omat tai muut graafiset työkalut saattavat käyttää komentoja, joista käyttäjä ei ole ihan kartalla ja pyritään välttämään niistä aiheutuvia omituisia ongelmia. Yhtäältä riski on pieni, toisaalta komentojen hallitseminen todennäköisesti antaa plussaa työhaastatteluissa ja helpottaa huomattavasti uusiin ympäristöihin sopeutumista. 
-
-*Kloonataan repo* komennolla
-`git clone git@github.com:tpolvinen/cityzer.git`
-
-Huom: Koska emme ole forkanneet repoa jostain meneillään olevasta projektista, ei upstream-määritystä tarvitse tehdä.
 
 *Joka päivän alussa* tulee tehdä `git checkout master` ja `git pull` jotta päästään ajan tasalle.
 
