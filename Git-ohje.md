@@ -32,7 +32,7 @@ Käytetään `master` branchia vain julkaisuille, `develop` branchia kehitykseen
 * Branching **ensimmäinen push** komennolla `git push -u origin toiminnallisuusx/omanimi`, seuraavat `git push`
 * Kun toiminnallisuus on valmis, testaa!
 * Testattuasi tee Githubin sivulla pull request, aseta *base: develop* —EI MASTERIIN!
-* Pull requesting testannut hyväksyjä tekee (feature branch -> merge -> develop branch)
+* Pull requesting testannut hyväksyjä tekee feature branchistä mergen `develop` branchiin:
     * `git checkout develop`  vaihdetaan tarkastetusta branchistä develop branchiin
     * `git merge --no-ff toiminnallisuus-x/osa-y -m "Merge-viesti"`  mergetään feature branch developiin pitäen mukana kaikki commitit
     * `git branch -d toiminnallisuus-x/osa-y`  deletoidaan paikallinen feature branch
