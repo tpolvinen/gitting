@@ -1,7 +1,8 @@
 # Git-ohje
 Ensin lyhyt yleinen kuvaus, sitten varsinaiset käytänteet ja käytettävät komennot.
 
-Työskentelyn alkaessa muista aina `git checkout master` ja `git pull` --joka päivän aluksi! Kun teet pull requestia, muista laittaa base-kohtaan `develop` branch, EIKÄ `master`!
+Työskentelyn alkaessa muista aina `git checkout master` ja `git pull` -joka päivän aluksi! 
+Kun teet pull requestia, muista laittaa base-kohtaan `develop` branch, EIKÄ `master`!
 
 Lue tämän ohjeen pohjatiedoksi artikkeli [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/) -saatavilla osoitteesta: http://nvie.com/posts/a-successful-git-branching-model/
 Lisäksi kannattaa lukea Githubin ohje [Git Style Guide](https://github.com/agis/git-style-guide) -saatavilla osoitteessa https://github.com/agis/git-style-guide 
