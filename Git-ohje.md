@@ -80,7 +80,7 @@ Mutta vielä parempi olisi tehdä commit-viesti editorilla, mikä avautuu komenn
 Kannattaa myös huomioida, että commit-viestit voivat näkyä myös asiakkaalle! Hyvin todennäköisesti niitä seurataan myös työnjohdossa. ;-)
 
 *Feature branchin ensimmäinen PUSH* tulee tehdä komennolla
-`git push -u origin toiminnallisuus-x/osa-y`
+`git push -u origin toiminnallisuusx/osa3`
 …minkä jälkeen voi kyseistä branchiä pushata tavalliseen tapaan `git push`-komennolla.
 
 *Pull request* tulee tehdä Githubin sivuilla kun koodi on itse testattu toimivaksi. Kun koodi ja sen toiminta on testattu paikallisesti muiden kuin tekijän toimesta, voidaan branchi mergetä alkup. branchiin (yleensä develop) ja tätä kautta ottaa tehty ominaisuus mukaan releaseen menevään koodiin.
