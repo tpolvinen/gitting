@@ -20,7 +20,7 @@ Käytetään `master` branchia vain julkaisuille, `develop` branchia kehitykseen
 ## TL;DR 
 * Muista aina, liikenteessä aluksi `git checkout master` ja `git pull` 
 * Luo feature branch `develop` branchistä: pullaa `master`, nimeä uusi branch kuvaavasti toiminnallisuuden nimellä
-    * Jos useampia osia: tee “toiminnallisuusx/master“ branch ja siitä “toiminnallisuusx/omanimi” —tai omanimen tilalle “osan-nimi”, välit väliviivoiksi
+    * Jos useampia osia: tee “toiminnallisuusx/master“ branch ja siitä “toiminnallisuusx/omanimi” branch -—tai omanimen tilalle “osan-nimi”, välit väliviivoiksi
     * `git checkout develop` ja sitten
     * `git checkout -b toiminnallisuusx/omanimi develop`
 * Koodaa ekaan committiin asti, tallenna, tarpeen mukaan:  `git add .` tai `git add -A` 
