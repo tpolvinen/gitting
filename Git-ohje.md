@@ -68,28 +68,28 @@ Jos yhdessä toiminnallisuudessa (feature) on useita samaan aikaan työstettävi
 Nämä nimet olisi hyvä olla yhdistettävissä siihen Trello-tikettiin, jonka pohjalta työskennellään ja  mielellään samoilla sanoilla jotta etsintään ei mene turhaan aikaa.
 
 **Feature branchin luonti** kannattaa tehdä seuraavalla komennolla (muista pullata `master` branch ennen tätä). Tämä haaroittaa uuden branchin develop branchistä ja tässä esimerkissä tehdään branch nimeltä “toiminnallisuusx/osa3”.
- `git checkout -b toiminnallisuusx/osa3 develop`
+
+`git checkout -b toiminnallisuusx/osa3 develop`
 
 **Commitit feature branchiin** voi tehdä komennolla
 `git commit -m "Commit-viesti"`
-Missä commit-viestistä tulisi selvitä alle 50 merkillä mistä commitissa on kyse.
+missä commit-viestistä tulisi selvitä alle 50 merkillä mistä commitissa on kyse.
 
-Mutta vielä parempi olisi tehdä commit-viesti editorilla, mikä avautuu komennon `git commit` jälkeen. Viestin ekan rivin tulee olla lyhyt mutta ytimekäs: alle 50 merkkiä eikä pistettä perässä. Yksi rivi väliin ja sitten tarkempi kuvaus tarpeen mukaan, mihin kirjataan kuvaus miksi tehtiin, mitä tehtiin ja mitä sivuvaikutuksia voi ilmetä.. Tämä on aika raskasta, mutta ideana on tehdä selväksi viedä vuoden päästäkin asiaan palatessa mistä commitissa oli kyse. 
+Mutta vielä parempi olisi tehdä commit-viesti editorilla, mikä avautuu komennon `git commit` jälkeen. Viestin ekan rivin tulee olla lyhyt mutta ytimekäs: alle 50 merkkiä eikä pistettä perässä. Yksi rivi väliin ja sitten tarkempi kuvaus tarpeen mukaan, mihin kirjataan kuvaus miksi tehtiin, mitä tehtiin ja mitä sivuvaikutuksia voi ilmetä. Tämä on aika raskasta, mutta ideana on tehdä selväksi viedä vuoden päästäkin asiaan palatessa mistä commitissa oli kyse. 
 
 Kannattaa myös huomioida, että commit-viestit voivat näkyä myös asiakkaalle! Hyvin todennäköisesti niitä seurataan myös työnjohdossa. ;-)
 
-**Feature branchin ensimmäinen PUSH** tulee tehdä komennolla
-`git push -u origin toiminnallisuusx/osa3`
-…minkä jälkeen voi kyseistä branchiä pushata tavalliseen tapaan `git push`-komennolla.
+**Feature branchin ensimmäinen PUSH** tulee tehdä komennolla `git push -u origin toiminnallisuusx/osa3` minkä jälkeen voi kyseistä branchiä pushata tavalliseen tapaan `git push`-komennolla.
 
 **Pull request** tulee tehdä Githubin sivuilla kun koodi on itse testattu toimivaksi. Kun koodi ja sen toiminta on testattu paikallisesti muiden kuin tekijän toimesta, voidaan branchi mergetä alkup. branchiin (yleensä develop) ja tätä kautta ottaa tehty ominaisuus mukaan releaseen menevään koodiin.
 
-**Feature branchin mergaus develop-branchiin** tehdään vasta kun pull request on tarkastettu, testattu ja hyväksytty. Merge, samoin kuin testaus, tulee tehdä jonkun muun kuin koodin kirjoittajan toimesta. Näillä komennoilla: 
-`git checkout develop`  vaihdetaan tarkastetusta branchistä develop branchiin
-`git merge --no-ff toiminnallisuus-x/osa-y -m "Merge-viesti"`  mergetään feature branch developiin pitäen mukana kaikki commitit
-`git branch -d toiminnallisuus-x/osa-y`  deletoidaan paikallinen feature branch
-`git push origin develop`  pushataan tulos Githubissa olevan repon develop branchiin
-`git push origin :toiminnallisuus-x/osa-y` ja lopuksi deletoidaan feature branch Githubista
+**Feature branchin mergaus develop-branchiin** tehdään vasta kun pull request on tarkastettu, testattu ja hyväksytty. Merge, samoin kuin testaus, tulee tehdä jonkun muun kuin koodin kirjoittajan toimesta. Näillä komennoilla:
+
+* `git checkout develop`  Vaihdetaan tarkastetusta branchistä develop branchiin
+* `git merge --no-ff toiminnallisuus-x/osa-y -m "Merge-viesti"`  Mergetään feature branch developiin pitäen mukana kaikki commitit
+* `git branch -d toiminnallisuus-x/osa-y`  Deletoidaan paikallinen feature branch
+* `git push origin develop`  pushataan tulos Githubissa olevan repon develop branchiin
+* `git push origin :toiminnallisuus-x/osa-y` Lopuksi deletoidaan feature branch Githubista
 
 #### Release branch -käytännöt
 Release branchillä erotetaan työstettävä kehitysvaihe omaksi versiokseen, tehdään siihen vain tarvittavat bugfixaukset ja mergetään testattuna `master` branchiin, missä siitä muodostetaan release. Tällä vältetään samaan aikaan työstettävien featureiden ja bugfixien välisten konfliktien aiheuttamat viivytykset releasen julkaisulle ja/tai suojataan sprintin lopussa demottavaa versiota. 
@@ -106,21 +106,24 @@ Release branchillä erotetaan työstettävä kehitysvaihe omaksi versiokseen, te
 **Release branchin mergaus master branchiin:** Kun bugfixit on tehty (ja bugfixejä voidaan jatkuvasti mergata takaisin `develop` branchiin), tehdään pull request, testaukset ja mergetään release branch `master` branchiin. Githubin sivuilla `master` branchistä muodostetaan release, joka voidaan julkaista.
 
 Seuraavilla komennoilla:
-`git checkout master`  otetaan käyttöön master branch
-`git merge --no-ff release-julkaisunimi-X.Y -m "Merge-viesti"`  tehdään merge `master`iin
-Jos tulee merge conflict, fiksataan ne ja testataan uudelleen. Tästä ei saa päästää läpi fiksausta joka ei todistetusti toimi myös muilla!
-`git tag -a X.Y -m "Tag-viesti"`  annetaan commitille tag versionumeron mukaan
-`git push origin master` julkaisuversion push masteriin
 
-Jotta tehdyt bugfixit saadaan mukaan myös `develop` branchiin, otetaan käyttöön `develop` branch ja tehdään merge release branchistä:
-`git checkout develop`
-`git merge --no-ff release-julkaisunimi-X.Y -m "Merge-viesti bugfixeille"`
-Tässä vaiheessa tulee todennäköisesti konflikteja, joiden selvittämisen jälkeen voidaan pushata muutokset `develop` branchiin:
-`git push origin develop`
-Ja release branch poistetaan:
-`git branch -d releasenimi-X.Y`
-ja lopuksi poistetaan myös Githubissa oleva release branch:
-`git push origin :release-ekajulkaisu-0.1`
+* `git checkout master`  otetaan käyttöön master branch
+* `git merge --no-ff release-julkaisunimi-X.Y -m "Merge-viesti"`  tehdään merge `master`iin
+    * Jos tulee merge conflict, fiksataan ne ja testataan uudelleen. Tästä ei saa päästää läpi fiksausta joka ei todistetusti toimi myös muilla!
+* `git tag -a X.Y -m "Tag-viesti"`  annetaan commitille tag versionumeron mukaan
+* `git push origin master` julkaisuversion push masteriin
+
+Jotta tehdyt bugfixit saadaan mukaan myös `develop` branchiin:
+
+* `git checkout develop` Otetaan käyttöön `develop` branch
+* `git merge --no-ff release-julkaisunimi-X.Y -m "Merge-viesti bugfixeille"` Tehdään merge release branchistä
+
+Tässä vaiheessa tulee todennäköisesti konflikteja, joiden selvittämisen jälkeen voidaan pushata muutokset `develop` branchiin.
+
+* `git push origin develop` Pushataan muutokset `develop` branchiin
+* `git branch -d releasenimi-X.Y` Poistetaan release branch
+* `git push origin :release-ekajulkaisu-0.1` Poistetaan myös Githubissa oleva release branch
+
 
 #### Hotfix branch -käytännöt
 Nämä kirjoitetaan myöhemmin jos tarvetta tulee! Tarvittaessa voi katsoa mallia Vincent Driessenin /A successful Git branching model/ -artikkelista. :)
